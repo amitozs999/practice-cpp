@@ -103,11 +103,77 @@ class LinkedList{
       }
 
 
+      void deleteatpos(int pos){
+
+
+
+              node *temp=head;
+
+              for(int i=1;i<pos-1;i++){
+
+                temp=temp->next;
+
+              }
+              node *tobedel=temp->next;
+            temp->next=tobedel->next;
+
+             free(tobedel);
+
+
+      }
+
+      void deletewholell(){
+
+
+
+         node *curr=head;
+         node *after;
+
+
+         while(curr!=NULL){
+
+
+            after=curr->next;
+            free(curr);
+            curr=after;
+         }
+
+         head=NULL;
+
+         cout<<"deleted";
+
+      }
+
+       void deletewholellrecursively(node *temp){
+
+
+
+         if(temp==NULL){
+
+               head=NULL;
+              return;
+
+         }else{
+
+
+              deletewholellrecursively(temp->next);
+
+              free(temp);
+
+         }
+
+
+
+
+      }
+
 
 
        node *gethead(){
 
+
             return head;
+
 
        }
 
@@ -148,8 +214,15 @@ int main(){
 
         ls.insertfront(8);   //8 2 6 9
 
-        ls.insertpos(3,5);    //
+        ls.insertpos(3,5);    // 8 2 5 6 9
+
+        ls.deleteatpos(4);     //8 2 5 9
         ls.display(ls.gethead());
+
+
+        ls.deletewholellrecursively(ls.gethead());
+        ls.display(ls.gethead());
+        cout<<"delete";
 
 
 }
