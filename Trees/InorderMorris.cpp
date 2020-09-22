@@ -24,60 +24,11 @@ class helper{
           return a;
      }
 
-     void inorder(node *root){
-
-
-        if(root==NULL){
-
-            return;
-        }
-
-        inorder(root->left);
-        cout<<root->data<<" ";
-        inorder(root->right);
-
-     }
-
-
-     void inorderIterative(node *root){
-
-
-           if(root==NULL){
-
-            return;
-
-           }
-
-           stack<node *> s;
-
-           while(root!=NULL  || !s.empty()){
-
-
-                if(root!=NULL){
-
-                   s.push(root);
-                   root=root->left;
-
-                }else{
-
-                  root=s.top();
-                  s.pop();
-
-                  cout<<root->data<<" ";
-                  root=root->right;
-
-                }
 
 
 
-           }
 
-
-     }
-
-
-
-            void morrisPreorder(node *root){
+            void morrisInorder(node *root){
 
 
                  while(root!=NULL){
@@ -162,6 +113,6 @@ int main(){
 	t.inorder(root);
 	cout<<endl;
 	//t.inorderIterative(root);
-	t.morrisPreorder(root);
+	t.morrisInorder(root);
 
 }
